@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xBEj8OWN8OLklPwZjx7cyjCuvIWNtUovYviqn50xk1mznu6xrGcpllghwuAOJO6PG8v+rElEPvOAGzfzA6Yklg==",
+  "dgSpecHash": "fYdwHeiX9wigwz4as/pQ9M31PcTztfxM4iIuHX2NbirqUPDHCJT6vk8Q+GFnw6pGHfwTN0kBDM3NF4d5Kacv8w==",
   "success": true,
   "projectFilePath": "/home/kafkalainen/Documents/aos_library/AosApp/AosApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/kafkalainen/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

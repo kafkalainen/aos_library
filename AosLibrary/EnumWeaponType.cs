@@ -1,5 +1,8 @@
-enum WeaponType
+namespace AosLibrary
 {
-	melee,
-	missile
+	public enum WeaponType
+	{
+		melee,
+		missile
+	}
 }

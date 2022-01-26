@@ -1,13 +1,18 @@
-public partial class Weapon
+using System;
+
+namespace AosLibrary
 {
-	public void PrintWeapon()
+	public partial class Weapon
 	{
-		Console.WriteLine("Name:", this.name);
-		Console.WriteLine("Type: ", this.move);
-		Console.WriteLine("Attacks: ", this.attacks);
-		Console.WriteLine("To hit: ", this.toHit);
-		Console.WriteLine("To wound: ", this.toWound);
-		Console.WriteLine("Rend: ", this.rend);
-		Console.WriteLine("Damage: ", this.damage);
+		public void PrintWeapon()
+		{
+			Console.WriteLine("Name:", this.name);
+			Console.WriteLine("Type: ", this.type);
+			Console.WriteLine("Attacks: ", this.attacks);
+			Console.WriteLine("To hit: ", this.toHit);
+			Console.WriteLine("To wound: ", this.toWound);
+			Console.WriteLine("Rend: ", this.rend);
+			Console.WriteLine("Damage: ", this.damage);
+		}
 	}
 }

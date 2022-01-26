@@ -1,20 +1,28 @@
 using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public partial class Characteristics
+namespace AosLibrary
 {
-	private Dictionary<int, int> move { get; set; }
-	private int wounds { get; set; }
-	private int save { get; set; }
-	private int bravery { get; set; }
-
-	public Characteristics(string csv)
+	public partial class Characteristics
 	{
-		Parser parser = new Parser();
-		string[] values = csv.Split(',');
+		public Dictionary<int, int> Move { get; private set; }
+		public int Wounds { get; private set; }
+		public int Save { get; private set; }
+		public int Bravery { get; private set; }
 
-		move = parser.ParseInt(ref values[0]);
-		wounds = parser.ParseInt(ref values[1]);
-		save = parser.ParseInt(ref values[2]);
-		bravery = parser.ParseInt(ref values[3]);
+		public Characteristics(string? json)
+		{
+			if (json != null)
+			{
+				dynamic? jsonObject = JsonConvert.DeserializeObject(json);
+				string movementJson = JsonConvert.SerializeObject(jsonObject.Characteristics.Movement);
+				this.Move = JsonConvert.DeserializeObject<Dictionary<int, int>>(movementJson);
+				this.Wounds = jsonObject.Characteristics.Wounds;
+				this.Save = jsonObject.Characteristics.Save;
+				this.Bravery = jsonObject.Characteristics.Bravery;
+			}
+		}
 	}
 }
