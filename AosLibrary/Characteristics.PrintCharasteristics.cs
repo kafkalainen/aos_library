@@ -7,9 +7,9 @@ namespace AosLibrary
 	{
 		public void PrintCharacteristics()
 		{
-			foreach (KeyValuePair<int,int> item in this.Move)
+			foreach (KeyValuePair<int,int> item in this._move)
 			{
-				Console.WriteLine("Movement: Bracket {0}, Value {1}", item.Key, item.Value);
+				Console.WriteLine("Move: Bracket {0}, Value {1}", item.Key, item.Value);
 			}
 			Console.WriteLine("Wounds: {0}", this.Wounds);
 			Console.WriteLine("Save: {0}", this.Save);

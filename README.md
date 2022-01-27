@@ -17,10 +17,11 @@ C# project for calculating probabilites in Age of Sigmar using .NET 6.0 and xUni
 	dotnet new console --output AosApp
 	dotnet sln add AosApp
 
-4. Create xUnit tests template.
+4. Create xUnit tests template and reference it.
 
 	dotnet new xunit --output AosApp
 	dotnet sln add AosApp
+	dotnet add ./AosTests/AosTests.csproj reference ./AosLibrary/AosLibrary.csproj
 
 5. Add reference from application to your class library
 
