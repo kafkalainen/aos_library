@@ -4,9 +4,9 @@ using Newtonsoft.Json.Linq;
 
 namespace  AosLibrary
 {
-	public partial class Parser
+	public static partial class Utilities
 	{
-		public WeaponType ParseWeaponType(string property, JObject obj)
+		public static WeaponType ParseWeaponType(string property, JObject obj)
 		{
 			WeaponType type;
 
@@ -16,7 +16,7 @@ namespace  AosLibrary
 				return (type);
 			}
 			JToken? token = obj[property];
-			if (!IsNullOrEmpty(token) && token != null)
+			if (!Utilities.IsNullOrEmpty(token) && token != null)
 			{
 				type = token.ToObject<WeaponType>();
 			}

@@ -4,9 +4,9 @@ using Newtonsoft.Json.Linq;
 
 namespace  AosLibrary
 {
-	public partial class Parser
+	public static partial class Utilities
 	{
-		public bool IsNullOrEmpty(JToken? token)
+		public static bool IsNullOrEmpty(JToken? token)
 		{
 			return (token == null) ||
 				(token.Type == JTokenType.Array && !token.HasValues) ||

@@ -17,20 +17,19 @@ namespace AosLibrary
 			if (json != null)
 			{
 				JObject jsonObj = JObject.Parse(json);
-				Parser parser = new Parser();
 				JToken? characteristicsJson = jsonObj["Characteristics"];
-				if (!parser.IsNullOrEmpty(characteristicsJson) && characteristicsJson != null)
+				if (!Utilities.IsNullOrEmpty(characteristicsJson) && characteristicsJson != null)
 				{
 					JToken? moveJson = characteristicsJson["Move"];
-					if (!parser.IsNullOrEmpty(moveJson) && moveJson != null)
+					if (!Utilities.IsNullOrEmpty(moveJson) && moveJson != null)
 					{
 						Dictionary<string, Range>? testDictionary = moveJson.ToObject<Dictionary<string, Range>>();
 						if (testDictionary != null)
 							this._move = testDictionary;
 					}
-					this.Wounds = parser.ParseInt("Wounds", characteristicsJson);
-					this.Save = parser.ParseInt("Save", characteristicsJson);
-					this.Bravery = parser.ParseInt("Bravery", characteristicsJson);
+					this.Wounds = Utilities.ParseInt("Wounds", characteristicsJson);
+					this.Save = Utilities.ParseInt("Save", characteristicsJson);
+					this.Bravery = Utilities.ParseInt("Bravery", characteristicsJson);
 				}
 			}
 		}
