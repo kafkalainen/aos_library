@@ -1,14 +1,14 @@
 namespace AosLibrary
 {
-	public struct Range
+	public class Range
 	{
-		private int min { get; }
-		private int max { get; }
+		public int Min { get; private set;}
+		public int Max { get; private set;}
 
 		public Range(int min, int max)
 		{
-			this.min = min;
-			this.max = max;
+			this.Min = min;
+			this.Max = max;
 		}
 	}
 }

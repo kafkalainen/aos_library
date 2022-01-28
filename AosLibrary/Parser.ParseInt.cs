@@ -1,20 +1,43 @@
 
-// using System;
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-// public partial class Parser
-// {
-// 	public int ParseInt(ref string input)
-// 	{
-// 		int result;
-// 		try
-// 		{
-// 			result = Int32.Parse(input);
-// 		}
-// 		catch (FormatException)
-// 		{
-// 			Console.WriteLine($"Unable to parse integer from input '{input}'");
-// 			throw ;
-// 		}
-// 		return (result);
-// 	}
-// }
+namespace AosLibrary
+{
+	public partial class Parser
+	{
+		public int ParseInt(string property, JObject? obj)
+		{
+			int nb;
+
+			nb = -1;
+			if (obj == null)
+			{
+				return (nb);
+			}
+			JToken? token = obj[property];
+			if (!IsNullOrEmpty(token) && token != null)
+			{
+				nb = token.ToObject<int>();
+			}
+			return (nb);
+		}
+
+		public int ParseInt(string property, JToken? token)
+		{
+			int nb;
+
+			nb = -1;
+			if (!IsNullOrEmpty(token) && token != null)
+			{
+				JToken? child = token[property];
+				if (!IsNullOrEmpty(child) && child != null)
+				{
+					nb = child.ToObject<int>();
+				}
+			}
+			return (nb);
+		}
+	}
+}

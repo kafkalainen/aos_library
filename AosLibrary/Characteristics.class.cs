@@ -7,7 +7,7 @@ namespace AosLibrary
 {
 	public partial class Characteristics
 	{
-		private Dictionary<int, int> _move;
+		private Dictionary<string, Range> _move = new Dictionary<string, Range>();
 		public int Wounds { get; private set; }
 		public int Save { get; private set; }
 		public int Bravery { get; private set; }
@@ -16,21 +16,30 @@ namespace AosLibrary
 		{
 			if (json != null)
 			{
-				dynamic? jsonObject = JsonConvert.DeserializeObject(json);
-				string movementJson = JsonConvert.SerializeObject(jsonObject.Characteristics.Movement);
-				this._move = JsonConvert.DeserializeObject<Dictionary<int, int>>(movementJson);
-				this.Wounds = jsonObject.Characteristics.Wounds;
-				this.Save = jsonObject.Characteristics.Save;
-				this.Bravery = jsonObject.Characteristics.Bravery;
+				JObject jsonObj = JObject.Parse(json);
+				Parser parser = new Parser();
+				JToken? characteristicsJson = jsonObj["Characteristics"];
+				if (!parser.IsNullOrEmpty(characteristicsJson) && characteristicsJson != null)
+				{
+					JToken? moveJson = characteristicsJson["Move"];
+					if (!parser.IsNullOrEmpty(moveJson) && moveJson != null)
+					{
+						Dictionary<string, Range>? testDictionary = moveJson.ToObject<Dictionary<string, Range>>();
+						if (testDictionary != null)
+							this._move = testDictionary;
+					}
+					this.Wounds = parser.ParseInt("Wounds", characteristicsJson);
+					this.Save = parser.ParseInt("Save", characteristicsJson);
+					this.Bravery = parser.ParseInt("Bravery", characteristicsJson);
+				}
 			}
 		}
-		public int Move(int key)
+
+		public Characteristics()
 		{
-			if (!_move.ContainsKey(key))
-			{
-				throw new ValueNotFoundException($"Error {key} was not in the list of values.");
-			}
-			return (_move[key]);
+			this.Wounds = 0;
+			this.Bravery = 0;
+			this.Save = 0;
 		}
 	}
 }
