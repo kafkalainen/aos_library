@@ -9,7 +9,10 @@ namespace  AosLibrary
 		public static Dictionary<string, TValue> ParseDictionary<TValue>(string property, JObject obj)
 		{
 			Dictionary<string, TValue> dictionary = new Dictionary<string, TValue>();
-
+			if (obj == null)
+			{
+				throw new InvalidDataException("Invalid dataobject passed to parser.");
+			}
 			JToken? token = obj[property];
 			if (!Utilities.IsNullOrEmpty(token) && token != null)
 			{
