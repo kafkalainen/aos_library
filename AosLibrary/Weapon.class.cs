@@ -15,11 +15,7 @@ namespace AosLibrary
 		Dictionary<string, int> _rend = new Dictionary<string, int>();
 		Dictionary<string, Range> _damage = new Dictionary<string, Range>();
 
-		bool _toHitMortalEnds;
-		bool _toHitMortalInAddition;
-		bool _toWoundMortalEnds;
-
-		bool _toWoundMortalsInAddition;
+		Special _special;
 
 		public Weapon(string json)
 		{
@@ -31,6 +27,7 @@ namespace AosLibrary
 			this._toWound = Utilities.ParseDictionary<int>("ToWound", jsonObj);
 			this._rend = Utilities.ParseDictionary<int>("Rend", jsonObj);
 			this._damage = Utilities.ParseDictionary<Range>("Damage", jsonObj);
+			this._special = new Special(json);
 		}
 	}
 }
