@@ -4,49 +4,49 @@ namespace AosLibrary
 {
 	public partial class Special
 	{
-		bool _toHitsEnds = false;
-		bool _toHitsInAddition = false;
+		public bool ToHitsEnds {get; private set;}  = false;
+		public bool ToHitsInAddition {get; private set;} = false;
 
-		int _toHitWoundsOn = -1;
+		public int ToHitWoundsOn {get; private set;} = -1;
 
-		Range _toHitWoundsRange = new Range(-1, -1);
+		public Range ToHitWoundsRange {get; private set;} = new Range(-1, -1);
 
-		bool _toWoundEnds = false;
-		bool _toWoundInAddition = false;
+		public bool ToWoundEnds {get; private set;} = false;
+		public bool ToWoundInAddition {get; private set;} = false;
 
-		int _toWoundWoundsOn = -1;
+		public int ToWoundWoundsOn {get; private set;} = -1;
 
-		Range _toWoundWoundsRange = new Range(-1, -1);
-		bool _toHitMortalsInAddition = false;
-		bool _toHitMortalsEnds = false;
-		int _toHitMortalsOn = -1;
-		Range _toHitMortalsRange = new Range(-1, -1);
-		bool _toWoundMortalsEnds = false;
+		public Range ToWoundWoundsRange {get; private set;} = new Range(-1, -1);
+		public bool ToHitMortalsInAddition {get; private set;} = false;
+		public bool ToHitMortalsEnds {get; private set;} = false;
+		public int ToHitMortalsOn {get; private set;} = -1;
+		public Range ToHitMortalsRange {get; private set;} = new Range(-1, -1);
+		public bool ToWoundMortalsEnds {get; private set;} = false;
 
-		bool _toWoundMortalsInAddition = false;
+		public bool ToWoundMortalsInAddition {get; private set;} = false;
 
-		int _toWoundMortalsOn = -1;
-		Range _toWoundMortalsRange = new Range(-1, -1);
+		public int ToWoundMortalsOn {get; private set;} = -1;
+		public Range ToWoundMortalsRange {get; private set;} = new Range(-1, -1);
 
 		public Special(string json)
 		{
 			JObject jsonObj = JObject.Parse(json);
-			this._toHitsInAddition = Utilities.ParseBoolean("ToHitsInAddition", jsonObj);
-			this._toHitsEnds = Utilities.ParseBoolean("ToHitsEnds", jsonObj);
-			this._toHitWoundsOn = Utilities.ParseInt("ToHitWoundsOn", jsonObj);
-			this._toHitWoundsRange = Utilities.ParseRange("ToHitWoundsRange", jsonObj);
-			this._toWoundInAddition = Utilities.ParseBoolean("ToWoundInAddition", jsonObj);
-			this._toWoundEnds = Utilities.ParseBoolean("ToWoundEnds", jsonObj);
-			this._toWoundWoundsOn = Utilities.ParseInt("ToWoundWoundsOn", jsonObj);
-			this._toWoundWoundsRange = Utilities.ParseRange("ToWoundWoundsRange", jsonObj);
-			this._toHitMortalsInAddition = Utilities.ParseBoolean("ToHitMortalsInAddition", jsonObj);
-			this._toHitMortalsEnds = Utilities.ParseBoolean("ToHitMortalsInAddition", jsonObj);
-			this._toHitMortalsOn = Utilities.ParseInt("ToHitMortalsOn", jsonObj);
-			this._toHitMortalsRange = Utilities.ParseRange("ToHitMortalsRange", jsonObj);
-			this._toWoundMortalsInAddition = Utilities.ParseBoolean("ToWoundMortalsInAddition", jsonObj);
-			this._toWoundMortalsEnds = Utilities.ParseBoolean("ToWoundMortalsInAddition", jsonObj);
-			this._toWoundMortalsOn = Utilities.ParseInt("ToWoundMortalsOn", jsonObj);
-			this._toWoundMortalsRange = Utilities.ParseRange("ToWoundMortalsRange", jsonObj);
+			this.ToHitsInAddition = Utilities.ParseBoolean("ToHitsInAddition", jsonObj);
+			this.ToHitsEnds = Utilities.ParseBoolean("ToHitsEnds", jsonObj);
+			this.ToHitWoundsOn = Utilities.ParseInt("ToHitWoundsOn", jsonObj);
+			this.ToHitWoundsRange = Utilities.ParseRange("ToHitWoundsRange", jsonObj);
+			this.ToWoundInAddition = Utilities.ParseBoolean("ToWoundInAddition", jsonObj);
+			this.ToWoundEnds = Utilities.ParseBoolean("ToWoundEnds", jsonObj);
+			this.ToWoundWoundsOn = Utilities.ParseInt("ToWoundWoundsOn", jsonObj);
+			this.ToWoundWoundsRange = Utilities.ParseRange("ToWoundWoundsRange", jsonObj);
+			this.ToHitMortalsInAddition = Utilities.ParseBoolean("ToHitMortalsInAddition", jsonObj);
+			this.ToHitMortalsEnds = Utilities.ParseBoolean("ToHitMortalsEnds", jsonObj);
+			this.ToHitMortalsOn = Utilities.ParseInt("ToHitMortalsOn", jsonObj);
+			this.ToHitMortalsRange = Utilities.ParseRange("ToHitMortalsRange", jsonObj);
+			this.ToWoundMortalsInAddition = Utilities.ParseBoolean("ToWoundMortalsInAddition", jsonObj);
+			this.ToWoundMortalsEnds = Utilities.ParseBoolean("ToWoundMortalsEnds", jsonObj);
+			this.ToWoundMortalsOn = Utilities.ParseInt("ToWoundMortalsOn", jsonObj);
+			this.ToWoundMortalsRange = Utilities.ParseRange("ToWoundMortalsRange", jsonObj);
 		}
 	}
 }

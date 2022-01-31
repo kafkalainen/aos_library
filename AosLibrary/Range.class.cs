@@ -10,5 +10,10 @@ namespace AosLibrary
 			this.Min = min;
 			this.Max = max;
 		}
+
+		public double Average()
+		{
+			return ((this.Min + this.Max) / 2.0);
+		}
 	}
 }
