@@ -1,16 +1,17 @@
+
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace  AosLibrary
+namespace AosLibrary
 {
 	public static partial class Utilities
 	{
-		public static WeaponType ParseWeaponType(string property, JObject obj)
+		public static bool ParseBoolean(string property, JObject? obj)
 		{
-			WeaponType type;
+			bool val;
 
-			type = WeaponType.notset;
+			val = false;
 			if (obj == null)
 			{
 				throw new InvalidDataException("Invalid dataobject passed to parser.");
@@ -18,9 +19,13 @@ namespace  AosLibrary
 			JToken? token = obj[property];
 			if (!Utilities.IsNullOrEmpty(token) && token != null)
 			{
-				type = token.ToObject<WeaponType>();
+				val = token.ToObject<bool>();
 			}
-			return (type);
+			else
+			{
+				throw new InvalidDataException("Property not found, data is malformed");
+			}
+			return (val);
 		}
 	}
 }

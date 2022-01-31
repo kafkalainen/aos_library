@@ -14,7 +14,7 @@ namespace AosLibrary
 			nb = -1;
 			if (obj == null)
 			{
-				return (nb);
+				throw new InvalidDataException("Invalid dataobject passed to parser.");
 			}
 			JToken? token = obj[property];
 			if (!Utilities.IsNullOrEmpty(token) && token != null)
